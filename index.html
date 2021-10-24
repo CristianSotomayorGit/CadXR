@@ -54,10 +54,6 @@
         // Create scene and create XR experience.
         const createScene = async function () {
 
-            // Create Ground
-            let ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1000, height: 1000 }, scene, false);
-            ground.material = groundMaterial;
-
             // Create a basic Babylon Scene object.
             let scene = new BABYLON.Scene(engine);
 
