@@ -83,6 +83,9 @@
 
             // Create a default environment for the scene.
             scene.createDefaultEnvironment();
+            
+            var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1000, height: 1000 }, scene);
+            ground.material = new BABYLON.GridMaterial("mat", scene);
 
             // Initialize XR experience with default experience helper.
             const xrHelper = await scene.createDefaultXRExperienceAsync();
