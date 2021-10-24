@@ -56,6 +56,11 @@
 
             // Create a basic Babylon Scene object.
             let scene = new BABYLON.Scene(engine);
+            
+            
+            // Create grid floor
+            var ground = BABYLON.MeshBuilder.CreateGround("ground", {width:1000, height:1000});
+            ground.material = new BABYLON.GridMaterial("mat", scene);
 
             // Create and position a free camera.
             let camera = new BABYLON.FreeCamera('camera-1', new BABYLON.Vector3(0, 5, -10), scene);
@@ -84,9 +89,6 @@
             // Create a default environment for the scene.
             scene.createDefaultEnvironment();
             
-            var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1000, height: 1000 }, scene);
-            ground.material = new BABYLON.GridMaterial("mat", scene);
-
             // Initialize XR experience with default experience helper.
             const xrHelper = await scene.createDefaultXRExperienceAsync();
             if (!xrHelper.baseExperience) {
