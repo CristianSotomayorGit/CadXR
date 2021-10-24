@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+     <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,10 +45,8 @@
         var scene = null;
         var sceneToRender = null;
         var createDefaultEngine = function() { return new BABYLON.Engine(canvas, true, { preserveDrawingBuffer: true, stencil: true,  disableWebGL2Support: false}); };
-        var createScene = function () {
 
-    // Enable VR 
-    var vrHelper = scene.createDefaultVRExperience();
+const createScene = async function {
 
     // This creates a basic Babylon Scene object (non-mesh)
     var scene = new BABYLON.Scene(engine);
@@ -106,6 +104,18 @@
         window.addEventListener("resize", function () {
             engine.resize();
         });
+
+        // Initialize XR experience with default experience helper.
+        const xrHelper = await scene.createDefaultXRExperienceAsync();
+        if (!xrHelper.baseExperience) {
+            // XR support is unavailable.
+            console.log('WebXR support is unavailable');
+        } else {
+            // XR support is available; proceed.
+            return scene;
+        }
+
+};
     </script>
 </body>
 </html>
