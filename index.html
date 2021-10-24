@@ -55,7 +55,7 @@
         const createScene = async function () {
 
             // Create Ground
-            var ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1000, height: 1000 }, scene, false);
+            let ground = BABYLON.MeshBuilder.CreateGround("ground", { width: 1000, height: 1000 }, scene, false);
             ground.material = groundMaterial;
 
             // Create a basic Babylon Scene object.
